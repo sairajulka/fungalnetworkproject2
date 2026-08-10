@@ -1,3 +1,11 @@
+#instructions
+1. download/clone our repo 
+2. Download dependencies
+3. run "python3 fungal_model.py"
+4. wait for calibration to end
+5. run "streamlit app.py"
+6. if you want to use satellite imaging, use project id "ecoscout-504920"
+
 # fungalnetworkproject
 AI + Satellite Imagery + Hardware for Mapping Potential Fungal Activity
 
