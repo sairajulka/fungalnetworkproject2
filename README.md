@@ -1,4 +1,4 @@
-# fungalnetworkproject
+# EcoScout
 TO DEMO ECOSCOUT PLEASE USE THIS LINK 
 https://fungalnetworkproject2git-r8umw52abah4r7vyfyhjew.streamlit.app/
 
