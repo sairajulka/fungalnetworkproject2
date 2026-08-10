@@ -250,11 +250,10 @@ Instead, it identifies correlated indicators and environmental conditions that c
 
 The strongest confirmation would require biological sampling, such as laboratory analysis of soil or root-associated fungal DNA.
 
-This distinction is important because:
+This distinction is important because our goal is to make fungal research more targeted and scalable, not to replace biological testing.
 
-Correlation ≠ confirmation.
+<img width="1464" height="810" alt="image" src="https://github.com/user-attachments/assets/daedf4c9-cac1-4b91-9f29-80a1968449e4" />
 
-Our goal is to make fungal research more targeted and scalable, not to replace biological testing.
 
 
 
