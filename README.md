@@ -240,5 +240,14 @@ Correlation ≠ confirmation.
 
 Our goal is to make fungal research more targeted and scalable, not to replace biological testing all together.
 
+# AI Use
+
+For EcoScout, AI acted as an accelerator across our entire development cycle, beginning with research and validation. We utilized AI to quickly navigate complex legal frameworks, local construction restrictions, and biodiversity data regarding fungal networks and their environmental impacts. Once our foundational research was validated, AI helped architect our technical infrastructure by suggesting tailored datasets and Convolutional Neural Network (CNN) models. This allowed our team to bypass the slow process of building from scratch, moving directly into a phase of active tinkering and prototyping to evaluate which machine learning components best aligned with our project goals. 
+
+During the development phase, we collaborated with coding agents to build the core codebase while maintaining strict quality control. Rather than blindly accepting AI outputs, we treated the agent as a collaborative partner, prompting it for structural solutions and then meticulously reviewing and altering the code line-by-line to eliminate hallucinations and miscalculations. This rigorous human-in-the-loop approach extended to our debugging workflow, where AI functioned as a companion to isolate and resolve system errors rapidly. Ultimately, leveraging AI as a supportive guide allowed us to maintain complete engineering ownership and project integrity while drastically reducing time-to-market.
+
+View here a research AI use example: 
+https://chatgpt.com/share/6a79eed6-3cc8-83ea-8e2d-70f41b90d3ec
+
 
 
