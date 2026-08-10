@@ -1,10 +1,46 @@
-#instructions
-1. download/clone our repo 
-2. Download dependencies
-3. run "python3 fungal_model.py"
-4. wait for calibration to end
-5. run "streamlit app.py"
-6. if you want to use satellite imaging, use project id "ecoscout-504920"
+# fungalnetworkproject
+TO DEMO ECOSCOUT PLEASE USE THIS LINK 
+https://fungalnetworkproject2git-r8umw52abah4r7vyfyhjew.streamlit.app/
+
+### Python packages
+```bash
+pip install streamlit numpy pandas matplotlib pillow pyserial torch torchvision scikit-learn requests
+```
+ 
+### Optional: satellite panel
+```bash
+pip install earthengine-api
+```
+Also requires a **Google Earth Engine account** and a registered **GCP project ID**
+(entered in the app's "Earth Engine project ID" field). Without both, this panel
+disables itself gracefully and the rest of the app still works.
+ 
+### Hardware / non-Python
+**VS Code + PlatformIO extension** — used to build/upload `probe.ino` and monitor
+  its serial output (not the standalone Arduino IDE)
+**Arduino board + moisture probe**, wired to analog pin `A0`
+**USB cable** with data lines (not a charge-only cable)
+No external Arduino libraries needed — the sketch only uses the built-in `Arduino.h`/`Serial`
+## Setup — run in this order
+ 
+1. **Install Python dependencies** (see above).
+2. **Flash the Arduino**: open `probe/probe.ino` in VS Code (PlatformIO), Save,
+   then run the **Upload** task. Confirm it prints "SUCCESS" in the terminal.
+3. **Calibrate the soil probe**:
+```bash
+   python log_moisture.py --calibrate
+```
+   This creates `calibration.json`, which the app requires before any soil
+   sampling will work.
+4. *(Optional)* **Train the CNN**:
+```bash
+   python fungal_model.py
+```
+5. **Run the app**:
+```bash
+   streamlit run app.py
+
+***Only one program can hold the Arduino's serial port open at a time — Serial Monitor, PlatformIO's Monitor task, log_moisture.py, and the Streamlit app all compete for the same port.***
 
 # fungalnetworkproject
 AI + Satellite Imagery + Hardware for Mapping Potential Fungal Activity
