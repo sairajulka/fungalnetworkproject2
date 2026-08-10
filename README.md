@@ -39,7 +39,7 @@ No external Arduino libraries needed — the sketch only uses the built-in `Ardu
 5. **Run the app**:
 ```bash
    streamlit run app.py
-
+```
 ***Only one program can hold the Arduino's serial port open at a time — Serial Monitor, PlatformIO's Monitor task, log_moisture.py, and the Streamlit app all compete for the same port.***
 
 # fungalnetworkproject
