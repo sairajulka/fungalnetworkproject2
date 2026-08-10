@@ -42,16 +42,12 @@ No external Arduino libraries needed — the sketch only uses the built-in `Ardu
 ```
 ***Only one program can hold the Arduino's serial port open at a time — Serial Monitor, PlatformIO's Monitor task, log_moisture.py, and the Streamlit app all compete for the same port.***
 
-# fungalnetworkproject
+# Our App
 AI + Satellite Imagery + Hardware for Mapping Potential Fungal Activity
 
-Fungal Network Mapper is a multi-modal environmental monitoring system that identifies areas with a higher likelihood of fungal activity by combining computer vision, satellite imagery, and physical soil measurements.
+Fungal Network Mapper is a multi-modal environmental monitoring system that identifies areas with a higher likelihood of fungal activity by combining computer vision, satellite imagery, and physical soil measurements. Our goal is to create a scalable way to identify and investigate potential fungal hotspots without requiring researchers to manually survey every square meter of land.
 
-Our goal is to create a scalable way to identify and investigate potential fungal hotspots without requiring researchers to manually survey every square meter of land.
-
-Important: Our system estimates the likelihood of fungal activity. It does not directly prove that an underground fungal network exists. Physical sampling and biological testing would be needed for definitive confirmation.
-
-The Problem
+# The Problem
 
 Fungal networks, including mycorrhizal networks, play an important role in soil ecosystems, plant health, and nutrient cycling. When people build new projects on land, they can be unaware of their disruption to fungal networks. This means they must go through a lengthy and costly process when getting their permit in order to build. Our app would allow potential buyers to first survey the land and see if theres a high probability of disrupting networks. This could inform their buying decisions and make it so they don't go through difficult processes in the future.
 
@@ -63,29 +59,29 @@ Difficult and expensive to sample manually
 Influenced by environmental conditions such as moisture and vegetation
 
 
-Our Solution
+# Our Solution
 
 Fungal Network Mapper combines three layers of evidence:
 
-1. CNN model- Above-Ground Fungal Activity Detection
+# 1. CNN model- Above-Ground Fungal Activity Detection
 
 We train a CNN (Convolutional Neural Network) to analyze plant and environmental imagery for visible indicators associated with potential fungal activity.
 
 Our model combines three datasets:
 
-PlantDoc
+## PlantDoc
 
 Provides images of plants with different diseases and healthy conditions.
 
 Plant disease can sometimes be associated with fungal pathogens, allowing the model to learn visual patterns associated with diseased vegetation.
 
-PlantVillage
+## PlantVillage
 
 Provides a large collection of healthy and diseased plant images.
 
 This helps the model distinguish between normal plant appearance and abnormal vegetation patterns.
 
-iNaturalist
+## iNaturalist
 
 Provides observations of organisms in natural environments, including fungi.
 
@@ -93,7 +89,7 @@ This gives the model additional information about visible fungal organisms and f
 
 The CNN produces a fungal activity likelihood score based on observable above-ground characteristics.
 
-2. Satellite imagery and historical data
+# 2. Satellite imagery and historical data
 
 We use historical satellite imagery and environmental data to identify areas with environmental conditions that are more likely to be associated with fungal activity.
 
@@ -106,7 +102,7 @@ The system analyzes spatial patterns over time and generates a heat map.
 The heat map allows potential buyers to quickly identify areas worth investigating. 
 
 
-3. Hardware — Soil Moisture / Conductivity Verification
+# 3. Hardware — Soil Moisture / Conductivity Verification
 
 Once the satellite model identifies a potential hotspot, users can physically test the area using our Arduino-based sensor.
 
@@ -128,12 +124,12 @@ Arduino	Soil moisture/electrical response	Ground-check environmental conditions
 
 When multiple signals agree, the location becomes a higher-priority candidate for biological investigation.
 
-How It Works
-Step 1 — Analyze historical data
+# How It Works
+## Step 1 — Analyze historical data
 
 Satellite imagery and environmental information are processed to identify spatial patterns associated with potential fungal activity.
 
-Step 2 — Generate the heat map
+## Step 2 — Generate the heat map
 
 Our system assigns each location a likelihood score and visualizes it geographically.
 
@@ -141,19 +137,20 @@ Our system assigns each location a likelihood score and visualizes it geographic
 🟢 🟡 🟡 🔴 🔴 🔴
 🟢 🟢 🟡 🔴 🔴 🟡
 🟢 🟢 🟢 🟡 🟡 🟢
-Step 3 — Select a hotspot
+
+## Step 3 — Select a hotspot
 
 A user identifies a red/high-likelihood area on the map.
 
-Step 4 — Collect physical measurements
+## Step 4 — Collect physical measurements
 
 The user visits the location and takes soil measurements using the Arduino sensor.
 
-Step 5 — Compare the signals
+## Step 5 — Compare the signals
 
 The hardware measurement is uploaded to the system and associated with the corresponding geographic location.
 
-Step 6 — Combine the evidence
+## Step 6 — Combine the evidence
 
 The system combines:
 
@@ -162,7 +159,7 @@ CNN prediction + satellite prediction + physical soil measurement
 to produce a more informed estimate of potential fungal activity.
 
 
-📊 Example Output
+# Example Output
 
 A researcher could select a location on the map and see:
 
@@ -176,7 +173,7 @@ Soil moisture signal:     HIGH
 Combined priority:        HIGH
 --------------------------------
 
-Technology Stack
+# Technology Stack
 Machine Learning
 Python
 Convolutional Neural Networks (CNN)
@@ -199,21 +196,14 @@ Interactive map
 Heat-map visualization
 Sensor data integration
 Location-based fungal activity scoring
-What Makes This Different?
 
-Most approaches to studying fungal networks rely heavily on manual field sampling.
+# What Makes This Different?
 
-Our approach instead uses a:
+Most approaches to studying fungal networks rely heavily on manual field sampling. Our approach instead uses a:
 
-Predict → Prioritize → Ground-check → Investigate
+Predict → Prioritize → Ground-check → Investigate workflow. Rather than physically testing an enormous area, our system helps researchers determine where testing may be most valuable. This could make large-scale ecological surveys more efficient and help researchers monitor ecosystems over time.
 
-workflow.
-
-Rather than physically testing an enormous area, our system helps researchers determine where testing may be most valuable.
-
-This could make large-scale ecological surveys more efficient and help researchers monitor ecosystems over time.
-
-Future Applications
+# Future Applications
 
 Fungal Network Mapper could eventually be used for:
 
@@ -228,7 +218,7 @@ Future Improvements
 
 Our current hardware measures environmental conditions that may correlate with fungal activity. Future versions could add more direct biological measurements.
 
-Potential additions include:
+# Potential additions include:
 
 Soil DNA/eDNA analysis
 Laboratory fungal identification
@@ -242,18 +232,13 @@ More geographically diverse training data
 
 These additions could help us move from fungal activity prediction toward stronger biological validation.
 
-Limitations
+# Limitations
 
-Our system does not currently claim to directly detect underground fungal networks.
+Our system does not currently claim to directly detect underground fungal networks. Instead, it identifies correlated indicators and environmental conditions that can help locate areas where fungal activity may be more likely. The strongest confirmation would require biological sampling, such as laboratory analysis of soil or root-associated fungal DNA. This distinction is important because:
 
-Instead, it identifies correlated indicators and environmental conditions that can help locate areas where fungal activity may be more likely.
+Correlation ≠ confirmation.
 
-The strongest confirmation would require biological sampling, such as laboratory analysis of soil or root-associated fungal DNA.
-
-This distinction is important because our goal is to make fungal research more targeted and scalable, not to replace biological testing.
-
-<img width="1464" height="810" alt="image" src="https://github.com/user-attachments/assets/daedf4c9-cac1-4b91-9f29-80a1968449e4" />
-
+Our goal is to make fungal research more targeted and scalable, not to replace biological testing all together.
 
 
 
